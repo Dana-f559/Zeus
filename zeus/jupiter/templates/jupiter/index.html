@@ -2,9 +2,19 @@
 {% load static %}
 
 {% block script %}
-<script src="{% static 'jupiter/js/index.js' %}"></script>
+
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@v0.173.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.173.0/examples/jsm/"
+      }
+    }
+</script>
+<script type="module" src="{% static 'jupiter/js/index.js' %}"></script>
 {% endblock %}
 
 {% block body %}
 <h1>Jupiter and it's moons</h1>
+<canvas id="threeCanvas" data-model="{% static 'jupiter/models/' %}"></canvas>
 {% endblock %}
